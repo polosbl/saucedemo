@@ -15,8 +15,8 @@ public class CartPage extends HeaderPage {
     private static final String PRODUCT_QUANTITY = PRODUCT_ITEM + "//*[@class='cart_quantity']";
     private static final String REMOVE_BUTTON = PRODUCT_ITEM + "//button";
 
-    public void openPage() {
-        driver.get("https://www.saucedemo.com/cart.html");
+    public void openPage(String url) {
+        driver.get(url);
     }
 
     public String getProductPrice(String productName) {

@@ -13,7 +13,8 @@ public class LoginPage extends BasePage {
     private static final By USERNAME_INPUT = By.xpath("//*[@id='user-name']");
     private static final By PASSWORD_INPUT = By.xpath("//*[@id='password']");
     private static final By LOGIN_BUTTON = By.xpath("//*[@id='login-button']");
-    private static final By ERROR_MESSAGE = By.xpath("//*[@class='error-message-container error']");
+    private static final By ERROR_MESSAGE = By.xpath("//*[contains(@class,'error-message-container') " +
+            "and contains(@class,'error')]");
     private static final By CLOSE_ERROR_MESSAGE_BUTTON = By.xpath("//*[@data-test='error']//button");
 
     public void login(String username, String password) {
@@ -39,7 +40,7 @@ public class LoginPage extends BasePage {
         driver.findElement(CLOSE_ERROR_MESSAGE_BUTTON).click();
     }
 
-    public void openPage() {
-        driver.get("https://www.saucedemo.com/");
+    public void openPage(String url) {
+        driver.get(url);
     }
 }

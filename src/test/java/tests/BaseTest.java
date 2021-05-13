@@ -11,7 +11,7 @@ import pages.ProductsPage;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
+public class BaseTest implements ITestConstants {
     WebDriver driver;
     LoginPage loginPage;
     ProductsPage productsPage;
@@ -22,7 +22,7 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);

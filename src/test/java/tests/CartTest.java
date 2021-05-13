@@ -8,39 +8,39 @@ public class CartTest extends BaseTest{
 
     @Test
     public void addProductToCartTest() {
-        loginPage.openPage();
-        loginPage.login("standard_user","secret_sauce");
-        productsPage.addItemToCart("Sauce Labs Onesie");
-        cartPage.openPage();
-        Assert.assertTrue(cartPage.isItemElementPresent("Sauce Labs Onesie"));
+        loginPage.openPage(SAUCE_DEMO_BASE_URL);
+        loginPage.login(STANDARD_USER, STANDARD_USER_PASSWORD);
+        productsPage.addItemToCart(SAUCE_LABS_ONESIE);
+        cartPage.openPage(SAUCE_DEMO_CART_URL);
+        Assert.assertTrue(cartPage.isItemElementPresent(SAUCE_LABS_ONESIE));
     }
 
     @Test
     public void checkProductPriceTest() {
-        loginPage.openPage();
-        loginPage.login("standard_user","secret_sauce");
-        productsPage.addItemToCart("Sauce Labs Onesie");
-        String productPrice = productsPage.getItemPrice("Sauce Labs Onesie");
-        cartPage.openPage();
-        Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Onesie"),productPrice);
+        loginPage.openPage(SAUCE_DEMO_BASE_URL);
+        loginPage.login(STANDARD_USER, STANDARD_USER_PASSWORD);
+        productsPage.addItemToCart(SAUCE_LABS_ONESIE);
+        String productPrice = productsPage.getItemPrice(SAUCE_LABS_ONESIE);
+        cartPage.openPage(SAUCE_DEMO_CART_URL);
+        Assert.assertEquals(cartPage.getProductPrice(SAUCE_LABS_ONESIE),productPrice);
     }
 
     @Test
     public void checkQuantityTest() {
-        loginPage.openPage();
-        loginPage.login("standard_user","secret_sauce");
-        productsPage.addItemToCart("Sauce Labs Onesie");
-        cartPage.openPage();
-        Assert.assertEquals(cartPage.getProductQuantity("Sauce Labs Onesie"),"1");
+        loginPage.openPage(SAUCE_DEMO_BASE_URL);
+        loginPage.login(STANDARD_USER, STANDARD_USER_PASSWORD);
+        productsPage.addItemToCart(SAUCE_LABS_ONESIE);
+        cartPage.openPage(SAUCE_DEMO_CART_URL);
+        Assert.assertEquals(cartPage.getProductQuantity(SAUCE_LABS_ONESIE),"1");
     }
 
     @Test
     public void removeItemFromCartTest() {
-        loginPage.openPage();
-        loginPage.login("standard_user","secret_sauce");
-        productsPage.addItemToCart("Sauce Labs Onesie");
-        cartPage.openPage();
-        cartPage.removeItemFromCart("Sauce Labs Onesie");
-        Assert.assertFalse(cartPage.isItemElementPresent("Sauce Labs Onesie"));
+        loginPage.openPage(SAUCE_DEMO_BASE_URL);
+        loginPage.login(STANDARD_USER, STANDARD_USER_PASSWORD);
+        productsPage.addItemToCart(SAUCE_LABS_ONESIE);
+        cartPage.openPage(SAUCE_DEMO_CART_URL);
+        cartPage.removeItemFromCart(SAUCE_LABS_ONESIE);
+        Assert.assertFalse(cartPage.isItemElementPresent(SAUCE_LABS_ONESIE));
     }
 }

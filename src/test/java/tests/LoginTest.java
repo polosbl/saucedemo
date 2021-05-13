@@ -11,28 +11,28 @@ public class LoginTest extends BaseTest{
 
     @Test
     public void loginWithEmptyFieldsTest(){
-        loginPage.openPage();
+        loginPage.openPage(SAUCE_DEMO_BASE_URL);
         loginPage.login("","");
         Assert.assertEquals(loginPage.getErrorMessageText(),EMPTY_FIELDS_ERROR_TEXT);
     }
 
     @Test
     public void loginWithEmptyPasswordTest(){
-        loginPage.openPage();
+        loginPage.openPage(SAUCE_DEMO_BASE_URL);
         loginPage.login("1","");
         Assert.assertEquals(loginPage.getErrorMessageText(),EMPTY_PASSWORD_FIELD_ERROR_TEXT);
     }
 
     @Test
     public void loginAsIncorrectUserTest(){
-        loginPage.openPage();
+        loginPage.openPage(SAUCE_DEMO_BASE_URL);
         loginPage.login("1","1");
         Assert.assertEquals(loginPage.getErrorMessageText(),INCORRECT_DATA_IN_FIELDS_ERROR_TEXT);
     }
 
     @Test
     public void closeErrorMessageTest(){
-        loginPage.openPage();
+        loginPage.openPage(SAUCE_DEMO_BASE_URL);
         loginPage.login("1","1");
         loginPage.closeErrorMessage();
         Assert.assertTrue(!loginPage.isErrorMessagePresent());
