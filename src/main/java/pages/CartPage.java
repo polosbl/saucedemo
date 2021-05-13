@@ -31,12 +31,13 @@ public class CartPage extends HeaderPage {
         driver.findElement(By.xpath(String.format(REMOVE_BUTTON,productName))).click();
     }
 
-    public boolean isElementPresent(String productName) {
-        try {
-            driver.findElement(By.xpath(String.format(PRODUCT_ITEM, productName)));
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
+    public boolean isItemElementPresent(String productName) {
+//        try {
+//            driver.findElement(By.xpath(String.format(PRODUCT_ITEM, productName)));
+//            return true;
+//        } catch (NoSuchElementException e) {
+//            return false;
+//        }
+        return !driver.findElements(By.xpath(String.format(PRODUCT_ITEM, productName))).isEmpty();
     }
 }

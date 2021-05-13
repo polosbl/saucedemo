@@ -12,7 +12,7 @@ public class CartTest extends BaseTest{
         loginPage.login("standard_user","secret_sauce");
         productsPage.addItemToCart("Sauce Labs Onesie");
         cartPage.openPage();
-        Assert.assertTrue(cartPage.isElementPresent("Sauce Labs Onesie"));
+        Assert.assertTrue(cartPage.isItemElementPresent("Sauce Labs Onesie"));
     }
 
     @Test
@@ -41,6 +41,6 @@ public class CartTest extends BaseTest{
         productsPage.addItemToCart("Sauce Labs Onesie");
         cartPage.openPage();
         cartPage.removeItemFromCart("Sauce Labs Onesie");
-        Assert.assertTrue(!cartPage.isElementPresent("Sauce Labs Onesie"));
+        Assert.assertTrue(!cartPage.isItemElementPresent("Sauce Labs Onesie"));
     }
 }

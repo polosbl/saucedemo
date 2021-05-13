@@ -33,5 +33,4 @@ public class ProductsPage extends HeaderPage {
     public void removeItemFromCart(String productName) {
         driver.findElement(By.xpath(String.format(REMOVE_PRODUCT_FROM_CART_BUTTON,productName))).click();
     }
-
 }

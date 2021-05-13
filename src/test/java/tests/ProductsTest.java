@@ -34,6 +34,6 @@ public class ProductsTest extends BaseTest {
         productsPage.addItemToCart("Sauce Labs Onesie");
         productsPage.removeItemFromCart("Sauce Labs Onesie");
         cartPage.openPage();
-        Assert.assertTrue(!cartPage.isElementPresent("Sauce Labs Onesie"));
+        Assert.assertFalse(cartPage.isItemElementPresent("Sauce Labs Onesie"));
     }
 }

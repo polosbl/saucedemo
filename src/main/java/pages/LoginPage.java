@@ -16,7 +16,6 @@ public class LoginPage extends BasePage {
     private static final By ERROR_MESSAGE = By.xpath("//*[@class='error-message-container error']");
     private static final By CLOSE_ERROR_MESSAGE_BUTTON = By.xpath("//*[@data-test='error']//button");
 
-
     public void login(String username, String password) {
         driver.findElement(USERNAME_INPUT).sendKeys(username);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
@@ -43,5 +42,4 @@ public class LoginPage extends BasePage {
     public void openPage() {
         driver.get("https://www.saucedemo.com/");
     }
-
 }
