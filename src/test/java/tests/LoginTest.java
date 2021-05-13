@@ -12,6 +12,7 @@ public class LoginTest extends BaseTest{
     @Test
     public void loginWithEmptyFieldsTest(){
         loginPage.openPage(SAUCE_DEMO_BASE_URL);
+        loginPage.waitForPageOpened();
         loginPage.login("","");
         Assert.assertEquals(loginPage.getErrorMessageText(),EMPTY_FIELDS_ERROR_TEXT);
     }

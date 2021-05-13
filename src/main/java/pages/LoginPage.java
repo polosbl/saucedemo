@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends BasePage {
 
@@ -16,6 +18,7 @@ public class LoginPage extends BasePage {
     private static final By ERROR_MESSAGE = By.xpath("//*[contains(@class,'error-message-container') " +
             "and contains(@class,'error')]");
     private static final By CLOSE_ERROR_MESSAGE_BUTTON = By.xpath("//*[@data-test='error']//button");
+    private static final By BOT_LOGO = By.xpath("//*[@class='bot_column']");
 
     public void login(String username, String password) {
         driver.findElement(USERNAME_INPUT).sendKeys(username);
@@ -42,5 +45,10 @@ public class LoginPage extends BasePage {
 
     public void openPage(String url) {
         driver.get(url);
+    }
+
+    public void waitForPageOpened() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(BOT_LOGO));
     }
 }
