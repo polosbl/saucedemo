@@ -37,8 +37,7 @@ public class LoginTest extends BaseTest {
         loginPage
                 .openPage(SAUCE_DEMO_BASE_URL)
                 .waitForPageOpened()
-                .login("1", "1");
-        loginPage
+                .loginWithError("1", "1")
                 .closeErrorMessage();
         Assert.assertFalse(loginPage.isErrorMessagePresent());
     }

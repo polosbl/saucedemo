@@ -44,6 +44,13 @@ public class LoginPage extends BasePage {
         return new ProductsPage(driver);
     }
 
+    public LoginPage loginWithError(String username, String password) {
+        usernameInput.sendKeys(username);
+        passwordInput.sendKeys(password);
+        loginButton.click();
+        return this;
+    }
+
     public String getErrorMessageText() {
         return errorMessage.getText();
     }
