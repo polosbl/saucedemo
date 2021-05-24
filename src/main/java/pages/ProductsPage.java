@@ -14,8 +14,9 @@ public class ProductsPage extends HeaderPage {
     private static final String REMOVE_PRODUCT_FROM_CART_BUTTON = PRODUCT_ITEM + "//button[contains(text(),'Remove')]";
     private static final String PRODUCT_PRICE = PRODUCT_ITEM + "//*[@class='inventory_item_price']";
 
-    public void addItemToCart(String productName) {
+    public ProductsPage addItemToCart(String productName) {
         driver.findElement(By.xpath(String.format(ADD_PRODUCT_TO_CART_BUTTON, productName))).click();
+        return this;
     }
 
     public boolean isRemoveButtonDisplayed(String productName) {
@@ -30,7 +31,8 @@ public class ProductsPage extends HeaderPage {
         return driver.findElement(By.xpath(String.format(PRODUCT_PRICE, productName))).getText();
     }
 
-    public void removeItemFromCart(String productName) {
+    public ProductsPage removeItemFromCart(String productName) {
         driver.findElement(By.xpath(String.format(REMOVE_PRODUCT_FROM_CART_BUTTON,productName))).click();
+        return this;
     }
 }
