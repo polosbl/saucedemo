@@ -17,7 +17,7 @@ public class CartTest extends BaseTest {
         Assert.assertTrue(cartPage.isItemElementPresent(SAUCE_LABS_ONESIE));
     }
 
-    @Test
+    @Test (retryAnalyzer = Retry.class)
     public void checkProductPriceTest() {
         loginPage
                 .openPage(SAUCE_DEMO_BASE_URL)
