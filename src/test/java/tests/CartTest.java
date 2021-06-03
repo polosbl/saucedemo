@@ -1,70 +1,68 @@
 package tests;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class CartTest extends BaseTest {
 
-    @Test
-    public void addProductToCartTest() {
-        loginPage
-                .openPage(SAUCE_DEMO_BASE_URL)
-                .waitForPageOpened()
-                .login(STANDARD_USER, STANDARD_USER_PASSWORD)
-                .addItemToCart(SAUCE_LABS_ONESIE);
-        cartPage
-                .openPage(SAUCE_DEMO_CART_URL);
-        Assert.assertTrue(cartPage.isItemElementPresent(SAUCE_LABS_ONESIE));
+    @DataProvider(name = "Items")
+    public Object[] items() {
+        return new Object[]{
+                "Sauce Labs Backpack",
+                "Sauce Labs Bike Light",
+                "Sauce Labs Bolt T-Shirt",
+                "Sauce Labs Fleece Jacket",
+                "Sauce Labs Onesie",
+                "Test.allTheThings() T-Shirt (Red)"
+        };
     }
 
-    @Test (retryAnalyzer = Retry.class)
-    public void checkProductPriceTest() {
-        loginPage
-                .openPage(SAUCE_DEMO_BASE_URL)
-                .waitForPageOpened()
-                .login(STANDARD_USER, STANDARD_USER_PASSWORD)
-                .addItemToCart(SAUCE_LABS_ONESIE);
-        String productPrice = productsPage.getItemPrice(SAUCE_LABS_ONESIE);
+    @Test(dataProvider = "Items")
+    public void addProductToCartTest(String item) {
+        productSteps
+                .loginAndAddProductToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
         cartPage
                 .openPage(SAUCE_DEMO_CART_URL);
-        Assert.assertEquals(cartPage.getProductPrice(SAUCE_LABS_ONESIE), productPrice);
+        Assert.assertTrue(cartPage.isItemElementPresent(item));
     }
 
-    @Test
-    public void checkQuantityTest() {
-        loginPage
-                .openPage(SAUCE_DEMO_BASE_URL)
-                .waitForPageOpened()
-                .login(STANDARD_USER, STANDARD_USER_PASSWORD)
-                .addItemToCart(SAUCE_LABS_ONESIE);
+    @Test(dataProvider = "Items", retryAnalyzer = Retry.class)
+    public void checkProductPriceTest(String item) {
+        productSteps
+                .loginAndAddProductToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
+        String productPrice = productsPage.getItemPrice(item);
         cartPage
                 .openPage(SAUCE_DEMO_CART_URL);
-        Assert.assertEquals(cartPage.getProductQuantity(SAUCE_LABS_ONESIE), "1");
+        Assert.assertEquals(cartPage.getProductPrice(item), productPrice);
     }
 
-    @Test
-    public void removeItemFromCartTest() {
-        loginPage
-                .openPage(SAUCE_DEMO_BASE_URL)
-                .waitForPageOpened()
-                .login(STANDARD_USER, STANDARD_USER_PASSWORD)
-                .addItemToCart(SAUCE_LABS_ONESIE);
+    @Test(dataProvider = "Items", retryAnalyzer = Retry.class)
+    public void checkQuantityTest(String item) {
+        productSteps
+                .loginAndAddProductToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
+        cartPage
+                .openPage(SAUCE_DEMO_CART_URL);
+        Assert.assertEquals(cartPage.getProductQuantity(item), "1");
+    }
+
+    @Test(dataProvider = "Items", retryAnalyzer = Retry.class)
+    public void removeItemFromCartTest(String item) {
+        productSteps
+                .loginAndAddProductToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
         cartPage
                 .openPage(SAUCE_DEMO_CART_URL)
-                .removeItemFromCart(SAUCE_LABS_ONESIE);
-        Assert.assertFalse(cartPage.isItemElementPresent(SAUCE_LABS_ONESIE));
+                .removeItemFromCart(item);
+        Assert.assertFalse(cartPage.isItemElementPresent(item));
     }
 
-    @Test
-    public void removeItemFromCartTestChain() {
-        loginPage
-                .openPage(SAUCE_DEMO_BASE_URL)
-                .waitForPageOpened()
-                .login(STANDARD_USER, STANDARD_USER_PASSWORD)
-                .addItemToCart(SAUCE_LABS_ONESIE);
+    @Test(dataProvider = "Items", retryAnalyzer = Retry.class)
+    public void removeItemFromCartTestChain(String item) {
+        productSteps
+                .loginAndAddProductToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
         cartPage
                 .openPage(SAUCE_DEMO_CART_URL)
-                .removeItemFromCart(SAUCE_LABS_ONESIE);
-        Assert.assertFalse(cartPage.isItemElementPresent(SAUCE_LABS_ONESIE));
+                .removeItemFromCart(item);
+        Assert.assertFalse(cartPage.isItemElementPresent(item));
     }
 }
