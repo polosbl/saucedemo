@@ -1,6 +1,5 @@
 package pages;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -15,17 +14,16 @@ public class CartPage extends HeaderPage {
     private static final String PRODUCT_QUANTITY = PRODUCT_ITEM + "//*[@class='cart_quantity']";
     private static final String REMOVE_BUTTON = PRODUCT_ITEM + "//button";
 
-    @Step("Opening cart page")
     public CartPage openPage(String url) {
         driver.get(url);
         return this;
     }
 
-    public String getProductPrice(String productName) {
+    public String getItemPrice(String productName) {
         return driver.findElement(By.xpath(String.format(PRODUCT_PRICE, productName))).getText();
     }
 
-    public String getProductQuantity(String productQuantity) {
+    public String getItemQuantity(String productQuantity) {
         return driver.findElement(By.xpath(String.format(PRODUCT_QUANTITY,productQuantity))).getText();
     }
 
@@ -34,7 +32,6 @@ public class CartPage extends HeaderPage {
         return this;
     }
 
-    @Step("Checking is {productName} present in cart")
     public boolean isItemElementPresent(String productName) {
         return !driver.findElements(By.xpath(String.format(PRODUCT_ITEM, productName))).isEmpty();
     }

@@ -1,11 +1,8 @@
 package tests;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
@@ -14,6 +11,8 @@ import org.testng.annotations.Listeners;
 import pages.CartPage;
 import pages.LoginPage;
 import pages.ProductsPage;
+import steps.CartSteps;
+import steps.LoginSteps;
 import steps.ProductSteps;
 
 import java.util.concurrent.TimeUnit;
@@ -25,6 +24,8 @@ public class BaseTest implements ITestConstants {
     ProductsPage productsPage;
     CartPage cartPage;
     ProductSteps productSteps;
+    CartSteps cartSteps;
+    LoginSteps loginSteps;
 
     @BeforeMethod
     public void initTest(ITestContext context){
@@ -58,5 +59,7 @@ public class BaseTest implements ITestConstants {
         productsPage = new ProductsPage(driver);
         cartPage = new CartPage(driver);
         productSteps = new ProductSteps(driver);
+        cartSteps = new CartSteps(driver);
+        loginSteps = new LoginSteps(driver);
     }
 }

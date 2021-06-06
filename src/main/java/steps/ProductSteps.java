@@ -14,13 +14,33 @@ public class ProductSteps {
         productsPage = new ProductsPage(driver);
     }
 
-    @Step("Login and add {item} to cart")
-    public ProductSteps loginAndAddProductToCart(String url, String username, String password, String item){
+    @Step("Logging in and adding {item} to cart")
+    public ProductSteps loginAndAddItemToCart(String url, String username, String password, String item) {
         loginPage
                 .openPage(url)
                 .waitForPageOpened()
                 .login(username, password)
                 .addItemToCart(item);
         return this;
+    }
+
+    @Step("Getting price from the catalog")
+    public String getItemPrice(String item) {
+        return productsPage.getItemPrice(item);
+    }
+
+    @Step("Getting current URL")
+    public String getCurrentUrl() {
+        return productsPage.getCurrentUrl();
+    }
+
+    @Step("Checking is Add button displayed")
+    public boolean isAddToCartButtonDisplayed(String item) {
+        return productsPage.isAddToCartButtonDisplayed(item);
+    }
+
+    @Step("Checking is Remove button displayed")
+    public boolean isRemoveButtonDisplayed(String item) {
+        return productsPage.isRemoveButtonDisplayed(item);
     }
 }

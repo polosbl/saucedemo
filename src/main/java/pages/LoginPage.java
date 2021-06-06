@@ -38,7 +38,6 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//*[@class='bot_column']")
     public WebElement botLogo;
 
-    @Step("Fill in {username} and {password}")
     public ProductsPage login(String username, String password) {
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
@@ -46,7 +45,6 @@ public class LoginPage extends BasePage {
         return new ProductsPage(driver);
     }
 
-    @Step("Fill in {username} and {password}")
     public LoginPage loginWithError(String username, String password) {
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
@@ -54,17 +52,14 @@ public class LoginPage extends BasePage {
         return this;
     }
 
-    @Step("Getting error message text")
     public String getErrorMessageText() {
         return errorMessage.getText();
     }
 
-    @Step("Checking is error message present")
     public boolean isErrorMessagePresent() {
         return errorMessages.isEmpty();
     }
 
-    @Step("Closing error message")
     public void closeErrorMessage() {
         closeErrorMessageButton.click();
     }
