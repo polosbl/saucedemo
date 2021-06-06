@@ -29,7 +29,7 @@ public class BaseTest implements ITestConstants {
 
     @BeforeMethod
     public void initTest(ITestContext context){
-        //TODO: Different browsers
+        //TODO: Different browsers (Firefox)
 //        if (System.getProperty("browser").equals("chrome")) {
         WebDriverManager.chromedriver().setup();
 //      DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
