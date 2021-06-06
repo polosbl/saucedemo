@@ -29,7 +29,7 @@ public class CartSteps {
         return cartPage.getItemPrice(item);
     }
 
-    @Step("Checking is item present int the cart")
+    @Step("Checking is {item} present int the cart")
     public boolean isItemElementPresent(String item) {
         return cartPage.isItemElementPresent(item);
     }

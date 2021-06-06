@@ -14,7 +14,7 @@ public class ProductSteps {
         productsPage = new ProductsPage(driver);
     }
 
-    @Step("Logging in and adding {item} to cart")
+    @Step("Log in and add {item} to cart")
     public ProductSteps loginAndAddItemToCart(String url, String username, String password, String item) {
         loginPage
                 .openPage(url)
@@ -24,7 +24,7 @@ public class ProductSteps {
         return this;
     }
 
-    @Step("Getting price from the catalog")
+    @Step("Getting {item}'s price from the catalog")
     public String getItemPrice(String item) {
         return productsPage.getItemPrice(item);
     }

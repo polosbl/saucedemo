@@ -12,7 +12,7 @@ public class LoginSteps {
         loginPage = new LoginPage(driver);
     }
 
-    @Step("Logging in with incorrect credentials ({username},{password})")
+    @Step("Log in with incorrect credentials ({username},{password})")
     public LoginSteps loginWithError(String url, String username, String password) {
         loginPage
                 .openPage(url)
@@ -21,7 +21,7 @@ public class LoginSteps {
         return this;
     }
 
-    @Step("Logging in with incorrect credentials ({username},{password}) and closing error message")
+    @Step("Log in with incorrect credentials ({username},{password}) and close error message")
     public LoginSteps loginWithErrorAndCloseErrorMessage(String url) {
         loginPage
                 .openPage(url)
@@ -31,7 +31,7 @@ public class LoginSteps {
         return this;
     }
 
-    @Step("Logging in with correct credentials ({username},{password})")
+    @Step("Log in with correct credentials ({username},{password})")
     public LoginSteps login(String url, String username, String password) {
         loginPage
                 .openPage(url)

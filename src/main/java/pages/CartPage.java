@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -19,20 +20,21 @@ public class CartPage extends HeaderPage {
         return this;
     }
 
-    public String getItemPrice(String productName) {
-        return driver.findElement(By.xpath(String.format(PRODUCT_PRICE, productName))).getText();
+    public String getItemPrice(String itemName) {
+        return driver.findElement(By.xpath(String.format(PRODUCT_PRICE, itemName))).getText();
     }
 
-    public String getItemQuantity(String productQuantity) {
-        return driver.findElement(By.xpath(String.format(PRODUCT_QUANTITY,productQuantity))).getText();
+    public String getItemQuantity(String itemQuantity) {
+        return driver.findElement(By.xpath(String.format(PRODUCT_QUANTITY,itemQuantity))).getText();
     }
 
-    public CartPage removeItemFromCart(String productName) {
-        driver.findElement(By.xpath(String.format(REMOVE_BUTTON,productName))).click();
+    @Step("Removing {itemName} from cart")
+    public CartPage removeItemFromCart(String itemName) {
+        driver.findElement(By.xpath(String.format(REMOVE_BUTTON,itemName))).click();
         return this;
     }
 
-    public boolean isItemElementPresent(String productName) {
-        return !driver.findElements(By.xpath(String.format(PRODUCT_ITEM, productName))).isEmpty();
+    public boolean isItemElementPresent(String itemName) {
+        return !driver.findElements(By.xpath(String.format(PRODUCT_ITEM, itemName))).isEmpty();
     }
 }
