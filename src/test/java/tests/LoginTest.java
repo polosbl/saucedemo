@@ -21,11 +21,11 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(productsPage.getCurrentUrl(),SAUCE_DEMO_PRODUCTS_URL);
     }
 
-//    @Test
-//    public void login() {
-//        loginSteps.login(SAUCE_DEMO_BASE_URL,System.getenv("username"),System.getenv("secret_sauce"));
-//        Assert.assertEquals(productsPage.getCurrentUrl(),SAUCE_DEMO_PRODUCTS_URL);
-//    }
+    @Test
+    public void loginEnvTest() {
+        loginSteps.login(SAUCE_DEMO_BASE_URL,System.getenv("username"),System.getenv("secret_sauce"));
+        Assert.assertEquals(productsPage.getCurrentUrl(),SAUCE_DEMO_PRODUCTS_URL);
+    }
 
     @Test(dataProvider = "Incorrect credentials")
     public void loginWithIncorrectCredentials(String username,String password,String errorMessage) {
