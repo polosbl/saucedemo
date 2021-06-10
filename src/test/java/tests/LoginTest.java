@@ -23,7 +23,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginEnvTest() {
-        loginSteps.login(SAUCE_DEMO_BASE_URL,System.getenv("username"),System.getenv("secret_sauce"));
+        loginSteps.login(SAUCE_DEMO_BASE_URL,System.getenv("username"),System.getenv("password"));
         Assert.assertEquals(productsPage.getCurrentUrl(),SAUCE_DEMO_PRODUCTS_URL);
     }
 
