@@ -13,7 +13,7 @@ public class ProductsTest extends BaseTest {
                 {"Sauce Labs Bolt T-Shirt", "$15.99"},
                 {"Sauce Labs Fleece Jacket", "$49.99"},
                 {"Sauce Labs Onesie", "$7.99"},
-                {"Test.allTheThings() T-Shirt (Red)", "$15.99"}
+                {"Test.allTheThings() T-Shirt (Red)", "$15.999"}
         };
     }
 
