@@ -14,7 +14,7 @@ public class LoginTest extends BaseTest {
                 {"1", "1",INCORRECT_DATA_IN_FIELDS_ERROR_TEXT}
         };
     }
-
+//
     @Test
     public void login() {
         loginSteps.login(SAUCE_DEMO_BASE_URL,STANDARD_USER,STANDARD_USER_PASSWORD);
