@@ -8,180 +8,99 @@
     <artifactId>soucedemo</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <!--&lt;!&ndash;<properties>&ndash;&gt;-->
-        <!--&lt;!&ndash;<maven.compiler.source>8</maven.compiler.source>&ndash;&gt;-->
-        <!--&lt;!&ndash;<maven.compiler.target>8</maven.compiler.target>&ndash;&gt;-->
-        <!--&lt;!&ndash;<testng.version>7.0.0</testng.version>&ndash;&gt;-->
-        <!--&lt;!&ndash;<selenium.version>3.141.59</selenium.version>&ndash;&gt;-->
-        <!--&lt;!&ndash;<webdrivermanager.version>4.4.1</webdrivermanager.version>&ndash;&gt;-->
-        <!--&lt;!&ndash;<alluretestng.version>2.7.0</alluretestng.version>&ndash;&gt;-->
-        <!--&lt;!&ndash;<aspectjweaver.version>1.9.6</aspectjweaver.version>&ndash;&gt;-->
-        <!--&lt;!&ndash;<allurejavacommons.version>2.13.9</allurejavacommons.version>&ndash;&gt;-->
-        <!--&lt;!&ndash;<mavensurefireplugin.version>3.0.0-M5</mavensurefireplugin.version>&ndash;&gt;-->
-        <!--&lt;!&ndash;<alluremavenplugin.version>2.10.0</alluremavenplugin.version>&ndash;&gt;-->
-    <!--&lt;!&ndash;</properties>&ndash;&gt;-->
-
-
-    <!--&lt;!&ndash;&lt;!&ndash;<build>&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;<plugins>&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;<plugin>&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;<groupId>org.apache.maven.plugins</groupId>&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;<artifactId>maven-surefire-plugin</artifactId>&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;<configuration>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;<forkCount>3</forkCount>&ndash;&gt;&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;<reuseForks>true</reuseForks>&ndash;&gt;&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;</configuration>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;<version>3.0.0-M5</version>&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;</plugin>&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;</plugins>&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;&lt;!&ndash;</build>&ndash;&gt;&ndash;&gt;-->
-    <!--&lt;!&ndash;<build>&ndash;&gt;-->
-        <!--&lt;!&ndash;<plugins>&ndash;&gt;-->
-            <!--&lt;!&ndash;<plugin>&ndash;&gt;-->
-                <!--&lt;!&ndash;<groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
-                <!--&lt;!&ndash;<artifactId>maven-surefire-plugin</artifactId>&ndash;&gt;-->
-                <!--&lt;!&ndash;<version>${mavensurefireplugin.version}</version>&ndash;&gt;-->
-                <!--&lt;!&ndash;<configuration>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<argLine>&ndash;&gt;-->
-                        <!--&lt;!&ndash; -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar -Xmx256m&ndash;&gt;-->
-                    <!--&lt;!&ndash;</argLine>&ndash;&gt;-->
-                <!--&lt;!&ndash;</configuration>&ndash;&gt;-->
-                <!--&lt;!&ndash;<dependencies>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<dependency>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<groupId>org.aspectj</groupId>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<artifactId>aspectjweaver</artifactId>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<version>${aspectjweaver.version}</version>&ndash;&gt;-->
-                    <!--&lt;!&ndash;</dependency>&ndash;&gt;-->
-                <!--&lt;!&ndash;</dependencies>&ndash;&gt;-->
-            <!--&lt;!&ndash;</plugin>&ndash;&gt;-->
-            <!--&lt;!&ndash;<plugin>&ndash;&gt;-->
-                <!--&lt;!&ndash;<groupId>io.qameta.allure</groupId>&ndash;&gt;-->
-                <!--&lt;!&ndash;<artifactId>allure-maven</artifactId>&ndash;&gt;-->
-                <!--&lt;!&ndash;<version>${alluremavenplugin.version}</version>&ndash;&gt;-->
-            <!--&lt;!&ndash;</plugin>&ndash;&gt;-->
-        <!--&lt;!&ndash;</plugins>&ndash;&gt;-->
-    <!--&lt;!&ndash;</build>&ndash;&gt;-->
-
-
-    <!--&lt;!&ndash;<dependencies>&ndash;&gt;-->
-        <!--&lt;!&ndash;<dependency>&ndash;&gt;-->
-            <!--&lt;!&ndash;<groupId>io.qameta.allure</groupId>&ndash;&gt;-->
-            <!--&lt;!&ndash;<artifactId>allure-testng</artifactId>&ndash;&gt;-->
-            <!--&lt;!&ndash;<version>${alluretestng.version}</version>&ndash;&gt;-->
-        <!--&lt;!&ndash;</dependency>&ndash;&gt;-->
-        <!--&lt;!&ndash;&lt;!&ndash; https://mvnrepository.com/artifact/org.aspectj/aspectjweaver &ndash;&gt;&ndash;&gt;-->
-        <!--&lt;!&ndash;<dependency>&ndash;&gt;-->
-            <!--&lt;!&ndash;<groupId>org.aspectj</groupId>&ndash;&gt;-->
-            <!--&lt;!&ndash;<artifactId>aspectjweaver</artifactId>&ndash;&gt;-->
-            <!--&lt;!&ndash;<version>${aspectjweaver.version}</version>&ndash;&gt;-->
-        <!--&lt;!&ndash;</dependency>&ndash;&gt;-->
-        <!--&lt;!&ndash;&lt;!&ndash; https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java &ndash;&gt;&ndash;&gt;-->
-        <!--&lt;!&ndash;<dependency>&ndash;&gt;-->
-            <!--&lt;!&ndash;<groupId>org.seleniumhq.selenium</groupId>&ndash;&gt;-->
-            <!--&lt;!&ndash;<artifactId>selenium-java</artifactId>&ndash;&gt;-->
-            <!--&lt;!&ndash;<version>${selenium.version}</version>&ndash;&gt;-->
-        <!--&lt;!&ndash;</dependency>&ndash;&gt;-->
-        <!--&lt;!&ndash;&lt;!&ndash; https://mvnrepository.com/artifact/org.testng/testng &ndash;&gt;&ndash;&gt;-->
-        <!--&lt;!&ndash;<dependency>&ndash;&gt;-->
-            <!--&lt;!&ndash;<groupId>org.testng</groupId>&ndash;&gt;-->
-            <!--&lt;!&ndash;<artifactId>testng</artifactId>&ndash;&gt;-->
-            <!--&lt;!&ndash;<version>${testng.version}</version>&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;<scope>test</scope>&ndash;&gt;&ndash;&gt;-->
-        <!--&lt;!&ndash;</dependency>&ndash;&gt;-->
-        <!--&lt;!&ndash;&lt;!&ndash; https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager &ndash;&gt;&ndash;&gt;-->
-        <!--&lt;!&ndash;<dependency>&ndash;&gt;-->
-            <!--&lt;!&ndash;<groupId>io.github.bonigarcia</groupId>&ndash;&gt;-->
-            <!--&lt;!&ndash;<artifactId>webdrivermanager</artifactId>&ndash;&gt;-->
-            <!--&lt;!&ndash;<version>${webdrivermanager.version}</version>&ndash;&gt;-->
-        <!--&lt;!&ndash;</dependency>&ndash;&gt;-->
-        <!--&lt;!&ndash;<dependency>&ndash;&gt;-->
-            <!--&lt;!&ndash;<groupId>io.qameta.allure</groupId>&ndash;&gt;-->
-            <!--&lt;!&ndash;<artifactId>allure-java-commons</artifactId>&ndash;&gt;-->
-            <!--&lt;!&ndash;<version>${allurejavacommons.version}</version>&ndash;&gt;-->
-            <!--&lt;!&ndash;<scope>compile</scope>&ndash;&gt;-->
-        <!--&lt;!&ndash;</dependency>&ndash;&gt;-->
-    <!--&lt;!&ndash;</dependencies>&ndash;&gt;-->
     <!--<properties>-->
-        <!--<maven.compiler.source>8</maven.compiler.source>-->
-        <!--<maven.compiler.target>8</maven.compiler.target>-->
-        <!--<testng.version>7.0.0</testng.version>-->
+    <!--<maven.compiler.source>8</maven.compiler.source>-->
+    <!--<maven.compiler.target>8</maven.compiler.target>-->
+    <!--<testng.version>7.0.0</testng.version>-->
+    <!--<selenium.version>3.141.59</selenium.version>-->
+    <!--<webdrivermanager.version>4.4.1</webdrivermanager.version>-->
+    <!--<alluretestng.version>2.7.0</alluretestng.version>-->
+    <!--<aspectjweaver.version>1.9.6</aspectjweaver.version>-->
+    <!--<allurejavacommons.version>2.13.9</allurejavacommons.version>-->
+    <!--<mavensurefireplugin.version>3.0.0-M5</mavensurefireplugin.version>-->
+    <!--<alluremavenplugin.version>2.10.0</alluremavenplugin.version>-->
     <!--</properties>-->
 
-    <!--&lt;!&ndash;    <build>&ndash;&gt;-->
-    <!--&lt;!&ndash;        <plugins>&ndash;&gt;-->
-    <!--&lt;!&ndash;            <plugin>&ndash;&gt;-->
-    <!--&lt;!&ndash;                <groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
-    <!--&lt;!&ndash;                <artifactId>maven-surefire-plugin</artifactId>&ndash;&gt;-->
-    <!--&lt;!&ndash;                <version>3.0.0-M4</version>&ndash;&gt;-->
-    <!--&lt;!&ndash;                <configuration>&ndash;&gt;-->
-    <!--&lt;!&ndash;                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>&ndash;&gt;-->
-    <!--&lt;!&ndash;                    <suiteXmlFiles>&ndash;&gt;-->
-    <!--&lt;!&ndash;                        <suiteXmlFile>src/test/resources/soucedemo.xml</suiteXmlFile>&ndash;&gt;-->
-    <!--&lt;!&ndash;                    </suiteXmlFiles>&ndash;&gt;-->
-    <!--&lt;!&ndash;                </configuration>&ndash;&gt;-->
-    <!--&lt;!&ndash;            </plugin>&ndash;&gt;-->
-    <!--&lt;!&ndash;        </plugins>&ndash;&gt;-->
-    <!--&lt;!&ndash;    </build>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;<build>&ndash;&gt;-->
+    <!--&lt;!&ndash;<plugins>&ndash;&gt;-->
+    <!--&lt;!&ndash;<plugin>&ndash;&gt;-->
+    <!--&lt;!&ndash;<groupId>org.apache.maven.plugins</groupId>&ndash;&gt;-->
+    <!--&lt;!&ndash;<artifactId>maven-surefire-plugin</artifactId>&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;<configuration>&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;<forkCount>3</forkCount>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash;<reuseForks>true</reuseForks>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;&lt;!&ndash;</configuration>&ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;<version>3.0.0-M5</version>&ndash;&gt;-->
+    <!--&lt;!&ndash;</plugin>&ndash;&gt;-->
+    <!--&lt;!&ndash;</plugins>&ndash;&gt;-->
+    <!--&lt;!&ndash;</build>&ndash;&gt;-->
     <!--<build>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-surefire-plugin</artifactId>-->
-                <!--<version>3.0.0-M3</version>-->
-                <!--<configuration>-->
-                    <!--<argLine>-->
-                        <!-- -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar-->
-                        <!-- -Xmx256m-->
-                    <!--</argLine>-->
-                <!--</configuration>-->
-                <!--<dependencies>-->
-                    <!--<dependency>-->
-                        <!--<groupId>org.aspectj</groupId>-->
-                        <!--<artifactId>aspectjweaver</artifactId>-->
-                        <!--<version>1.9.6</version>-->
-                    <!--</dependency>-->
-                <!--</dependencies>-->
-            <!--</plugin>-->
-            <!--<plugin>-->
-                <!--<groupId>io.qameta.allure</groupId>-->
-                <!--<artifactId>allure-maven</artifactId>-->
-                <!--<version>2.10.0</version>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
+    <!--<plugins>-->
+    <!--<plugin>-->
+    <!--<groupId>org.apache.maven.plugins</groupId>-->
+    <!--<artifactId>maven-surefire-plugin</artifactId>-->
+    <!--<version>${mavensurefireplugin.version}</version>-->
+    <!--<configuration>-->
+    <!--<argLine>-->
+    <!-- -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar -Xmx256m-->
+    <!--</argLine>-->
+    <!--</configuration>-->
+    <!--<dependencies>-->
+    <!--<dependency>-->
+    <!--<groupId>org.aspectj</groupId>-->
+    <!--<artifactId>aspectjweaver</artifactId>-->
+    <!--<version>${aspectjweaver.version}</version>-->
+    <!--</dependency>-->
+    <!--</dependencies>-->
+    <!--</plugin>-->
+    <!--<plugin>-->
+    <!--<groupId>io.qameta.allure</groupId>-->
+    <!--<artifactId>allure-maven</artifactId>-->
+    <!--<version>${alluremavenplugin.version}</version>-->
+    <!--</plugin>-->
+    <!--</plugins>-->
     <!--</build>-->
 
+
     <!--<dependencies>-->
-        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.testng/testng &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.testng</groupId>-->
-            <!--<artifactId>testng</artifactId>-->
-            <!--<version>${testng.version}</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
-        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.seleniumhq.selenium</groupId>-->
-            <!--<artifactId>selenium-java</artifactId>-->
-            <!--<version>3.141.59</version>-->
-        <!--</dependency>-->
-        <!--&lt;!&ndash; https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>io.github.bonigarcia</groupId>-->
-            <!--<artifactId>webdrivermanager</artifactId>-->
-            <!--<version>4.4.1</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>io.qameta.allure</groupId>-->
-            <!--<artifactId>allure-testng</artifactId>-->
-            <!--<version>2.7.0</version>-->
-        <!--</dependency>-->
-        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.aspectj/aspectjweaver &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>org.aspectj</groupId>-->
-            <!--<artifactId>aspectjweaver</artifactId>-->
-            <!--<version>1.9.1</version>-->
-        <!--</dependency>-->
+    <!--<dependency>-->
+    <!--<groupId>io.qameta.allure</groupId>-->
+    <!--<artifactId>allure-testng</artifactId>-->
+    <!--<version>${alluretestng.version}</version>-->
+    <!--</dependency>-->
+    <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.aspectj/aspectjweaver &ndash;&gt;-->
+    <!--<dependency>-->
+    <!--<groupId>org.aspectj</groupId>-->
+    <!--<artifactId>aspectjweaver</artifactId>-->
+    <!--<version>${aspectjweaver.version}</version>-->
+    <!--</dependency>-->
+    <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java &ndash;&gt;-->
+    <!--<dependency>-->
+    <!--<groupId>org.seleniumhq.selenium</groupId>-->
+    <!--<artifactId>selenium-java</artifactId>-->
+    <!--<version>${selenium.version}</version>-->
+    <!--</dependency>-->
+    <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.testng/testng &ndash;&gt;-->
+    <!--<dependency>-->
+    <!--<groupId>org.testng</groupId>-->
+    <!--<artifactId>testng</artifactId>-->
+    <!--<version>${testng.version}</version>-->
+    <!--&lt;!&ndash;<scope>test</scope>&ndash;&gt;-->
+    <!--</dependency>-->
+    <!--&lt;!&ndash; https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager &ndash;&gt;-->
+    <!--<dependency>-->
+    <!--<groupId>io.github.bonigarcia</groupId>-->
+    <!--<artifactId>webdrivermanager</artifactId>-->
+    <!--<version>${webdrivermanager.version}</version>-->
+    <!--</dependency>-->
+    <!--<dependency>-->
+    <!--<groupId>io.qameta.allure</groupId>-->
+    <!--<artifactId>allure-java-commons</artifactId>-->
+    <!--<version>${allurejavacommons.version}</version>-->
+    <!--<scope>compile</scope>-->
+    <!--</dependency>-->
     <!--</dependencies>-->
 
 
@@ -213,16 +132,19 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
+                    <forkCount>2</forkCount>
+                    <reuseForks>true</reuseForks>
                     <argLine>
-                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar
+                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.1/aspectjweaver-1.9.1.jar
                         -Xmx256m
                     </argLine>
+                    <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
-                        <version>1.9.6</version>
+                        <version>1.9.1</version>
                     </dependency>
                 </dependencies>
             </plugin>
