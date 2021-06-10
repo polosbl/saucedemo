@@ -23,7 +23,7 @@ jobs:
           command: google-chrome --version
       - run:
           name: Running tests
-          command: mvn clean test
+          command: mvn clean test -Dtest=LoginTest
       - run:
           name: Generate allure report
           command: mvn allure:report
@@ -33,6 +33,7 @@ jobs:
           when: always
       - store_artifacts:
           path: target/site/allure-maven-plugin/
+          when: always
 workflows:
   version: 2
   commit:

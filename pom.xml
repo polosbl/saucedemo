@@ -15,7 +15,7 @@
         <selenium.version>3.141.59</selenium.version>
         <webdrivermanager.version>4.4.1</webdrivermanager.version>
         <alluretestng.version>2.7.0</alluretestng.version>
-        <!--<allurejavacommons.version>2.13.9</allurejavacommons.version>-->
+        <allurejavacommons.version>2.13.9</allurejavacommons.version>
         <mavensurefireplugin.version>3.0.0-M5</mavensurefireplugin.version>
         <alluremavenplugin.version>2.10.0</alluremavenplugin.version>
     </properties>
@@ -76,12 +76,12 @@
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>io.qameta.allure</groupId>-->
-            <!--<artifactId>allure-java-commons</artifactId>-->
-            <!--<version>${allurejavacommons.version}</version>-->
-            <!--&lt;!&ndash;<scope>compile</scope>&ndash;&gt;-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-java-commons</artifactId>
+            <version>${allurejavacommons.version}</version>
+            <!--<scope>compile</scope>-->
+        </dependency>
     </dependencies>
 
 
