@@ -3,6 +3,7 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utils.PropertyReader;
 
 public class LoginTest extends BaseTest {
 
@@ -14,9 +15,9 @@ public class LoginTest extends BaseTest {
                 {"1", "1",INCORRECT_DATA_IN_FIELDS_ERROR_TEXT}
         };
     }
-//
+
     @Test
-    public void login() {
+    public void loginTest() {
         loginSteps.login(SAUCE_DEMO_BASE_URL,STANDARD_USER,STANDARD_USER_PASSWORD);
         Assert.assertEquals(productsPage.getCurrentUrl(),SAUCE_DEMO_PRODUCTS_URL);
     }
@@ -27,8 +28,16 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(productsPage.getCurrentUrl(),SAUCE_DEMO_PRODUCTS_URL);
     }
 
+    @Test
+    public void loginEnvTest2() {
+        loginSteps.login(SAUCE_DEMO_BASE_URL,
+                System.getenv().getOrDefault("username", PropertyReader.getProperty("username")),
+                System.getenv().getOrDefault("password", PropertyReader.getProperty("password")));
+        Assert.assertEquals(productsPage.getCurrentUrl(),SAUCE_DEMO_PRODUCTS_URL);
+    }
+
     @Test(dataProvider = "Incorrect credentials")
-    public void loginWithIncorrectCredentials(String username,String password,String errorMessage) {
+    public void loginWithIncorrectCredentialsTest(String username,String password,String errorMessage) {
         loginSteps
                 .loginWithError(SAUCE_DEMO_BASE_URL,username,password);
         Assert.assertEquals(loginSteps.getErrorMessageText(), errorMessage);
