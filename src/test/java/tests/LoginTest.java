@@ -22,11 +22,11 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(productsPage.getCurrentUrl(),SAUCE_DEMO_PRODUCTS_URL);
     }
 
-    @Test
-    public void loginEnvTest() {
-        loginSteps.login(SAUCE_DEMO_BASE_URL,System.getenv("username"),System.getenv("password"));
-        Assert.assertEquals(productsPage.getCurrentUrl(),SAUCE_DEMO_PRODUCTS_URL);
-    }
+//    @Test
+//    public void loginEnvTest() {
+//        loginSteps.login(SAUCE_DEMO_BASE_URL,System.getenv("username"),System.getenv("password"));
+//        Assert.assertEquals(productsPage.getCurrentUrl(),SAUCE_DEMO_PRODUCTS_URL);
+//    }
 
     @Test
     public void loginEnvTest2() {
