@@ -17,7 +17,7 @@
         <alluretestng.version>2.7.0</alluretestng.version>
         <aspectjweaver.version>1.9.6</aspectjweaver.version>
         <allurejavacommons.version>2.13.9</allurejavacommons.version>
-        <mavensurefireplugin.version>3.0.0-M5</mavensurefireplugin.version>
+        <!--<mavensurefireplugin.version>3.0.0-M5</mavensurefireplugin.version>-->
         <alluremavenplugin.version>2.10.0</alluremavenplugin.version>
     </properties>
 
