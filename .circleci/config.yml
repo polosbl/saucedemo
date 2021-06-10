@@ -23,7 +23,7 @@ jobs:
           command: google-chrome --version
       - run:
           name: Running tests
-          command: mvn clean test -Dtest=LoginTest
+          command: mvn clean test -Dtest=ProductsTest
       - run:
           name: Generate allure report
           command: mvn allure:report
@@ -46,6 +46,6 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - feature_lesson14-15
     jobs:
       - ui-tests
