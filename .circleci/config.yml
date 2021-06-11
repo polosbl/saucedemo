@@ -28,9 +28,9 @@ jobs:
           name: Generate allure report
           command: mvn allure:report
           when: always
-      - store_test_results:
-          path: target/allure-results
-          when: always
+#      - store_test_results:
+#          path: target/surefire-reports/junitreports
+#          when: always
       - store_artifacts:
           path: target/site/allure-maven-plugin/
           when: always
