@@ -16,7 +16,7 @@
         <webdrivermanager.version>4.4.1</webdrivermanager.version>
         <alluretestng.version>2.7.0</alluretestng.version>
         <allurejavacommons.version>2.13.9</allurejavacommons.version>
-        <mavensurefireplugin.version>3.0.0-M5</mavensurefireplugin.version>
+        <!--<mavensurefireplugin.version>3.0.0-M5</mavensurefireplugin.version>-->
         <alluremavenplugin.version>2.10.0</alluremavenplugin.version>
     </properties>
 
@@ -25,18 +25,20 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${mavensurefireplugin.version}</version>
+                <version>3.0.0-M3</version>
                 <configuration>
+                    <forkCount>2</forkCount>
+                    <reuseForks>true</reuseForks>
                     <argLine>
-                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.6/aspectjweaver-1.9.6.jar
-                        -Xmx256m
+                        -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.1/aspectjweaver-1.9.1.jar -Xmx256m
                     </argLine>
+                    <useSystemClassLoader>false</useSystemClassLoader>
                 </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.aspectj</groupId>
                         <artifactId>aspectjweaver</artifactId>
-                        <version>1.9.6</version>
+                        <version>1.9.1</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -80,7 +82,7 @@
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-java-commons</artifactId>
             <version>${allurejavacommons.version}</version>
-            <!--<scope>compile</scope>-->
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
