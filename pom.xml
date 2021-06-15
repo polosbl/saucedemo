@@ -27,8 +27,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M3</version>
                 <configuration>
-                    <forkCount>2</forkCount>
-                    <reuseForks>true</reuseForks>
+                    <!--<forkCount>2</forkCount>-->
+                    <!--<reuseForks>true</reuseForks>-->
                     <argLine>
                         -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/1.9.1/aspectjweaver-1.9.1.jar -Xmx256m
                     </argLine>
