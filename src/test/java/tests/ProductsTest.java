@@ -29,20 +29,18 @@ public class ProductsTest extends BaseTest {
         };
     }
 
-    @Test
-    public void isAddToCartButtonDisplayedTest() {
-        loginPage
-                .openPage(SAUCE_DEMO_BASE_URL)
-                .waitForPageOpened()
-                .login(STANDARD_USER, STANDARD_USER_PASSWORD);
-        Assert.assertTrue(productsPage.isAddToCartButtonDisplayed("test"));
+    @Test(dataProvider = "Items")
+    public void isAddToCartButtonDisplayedTest(String item) {
+        loginSteps
+                .login(SAUCE_DEMO_BASE_URL,STANDARD_USER, STANDARD_USER_PASSWORD);
+        Assert.assertTrue(productSteps.isAddToCartButtonDisplayed(item));
     }
 
     @Test(dataProvider = "Items")
     public void isRemoveButtonDisplayedTest(String item) {
         productSteps
-                .loginAndAddProductToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
-        Assert.assertTrue(productsPage.isRemoveButtonDisplayed(item));
+                .loginAndAddItemToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
+        Assert.assertTrue(productSteps.isRemoveButtonDisplayed(item));
     }
 
 
@@ -58,7 +56,7 @@ public class ProductsTest extends BaseTest {
     @Test(dataProvider = "Items")
     public void removeItemFromCartTest(String item) {
         productSteps
-                .loginAndAddProductToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
+                .loginAndAddItemToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
         productsPage
                 .removeItemFromCart(item);
         cartPage

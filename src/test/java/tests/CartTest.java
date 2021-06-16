@@ -21,48 +21,37 @@ public class CartTest extends BaseTest {
     @Test(dataProvider = "Items")
     public void addProductToCartTest(String item) {
         productSteps
-                .loginAndAddProductToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
-        cartPage
-                .openPage(SAUCE_DEMO_CART_URL);
-        Assert.assertTrue(cartPage.isItemElementPresent(item));
+                .loginAndAddItemToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
+        cartSteps
+                .openCartPage(SAUCE_DEMO_CART_URL);
+        Assert.assertTrue(cartSteps.isItemElementPresent(item));
     }
 
     @Test(dataProvider = "Items", retryAnalyzer = Retry.class)
     public void checkProductPriceTest(String item) {
         productSteps
-                .loginAndAddProductToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
-        String productPrice = productsPage.getItemPrice(item);
-        cartPage
-                .openPage(SAUCE_DEMO_CART_URL);
-        Assert.assertEquals(cartPage.getProductPrice(item), productPrice);
+                .loginAndAddItemToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
+        String productPrice = productSteps.getItemPrice(item);
+        cartSteps
+                .openCartPage(SAUCE_DEMO_CART_URL);
+        Assert.assertEquals(cartSteps.getItemPrice(item), productPrice);
     }
 
     @Test(dataProvider = "Items", retryAnalyzer = Retry.class)
     public void checkQuantityTest(String item) {
         productSteps
-                .loginAndAddProductToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
-        cartPage
-                .openPage(SAUCE_DEMO_CART_URL);
-        Assert.assertEquals(cartPage.getProductQuantity(item), "1");
+                .loginAndAddItemToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
+        cartSteps
+                .openCartPage(SAUCE_DEMO_CART_URL);
+        Assert.assertEquals(cartSteps.getItemQuantity(item), "1");
     }
 
     @Test(dataProvider = "Items", retryAnalyzer = Retry.class)
     public void removeItemFromCartTest(String item) {
         productSteps
-                .loginAndAddProductToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
-        cartPage
-                .openPage(SAUCE_DEMO_CART_URL)
-                .removeItemFromCart(item);
-        Assert.assertFalse(cartPage.isItemElementPresent(item));
-    }
-
-    @Test(dataProvider = "Items", retryAnalyzer = Retry.class)
-    public void removeItemFromCartTestChain(String item) {
-        productSteps
-                .loginAndAddProductToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
-        cartPage
-                .openPage(SAUCE_DEMO_CART_URL)
-                .removeItemFromCart(item);
-        Assert.assertFalse(cartPage.isItemElementPresent(item));
+                .loginAndAddItemToCart(SAUCE_DEMO_BASE_URL, STANDARD_USER, STANDARD_USER_PASSWORD, item);
+        cartSteps
+                .removeItemFromCart(SAUCE_DEMO_CART_URL,item);
+        Assert.assertFalse(cartSteps.isItemElementPresent(item));
     }
 }
