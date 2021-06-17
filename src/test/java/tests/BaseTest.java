@@ -60,7 +60,7 @@ public class BaseTest implements ITestConstants {
         context.setAttribute(variable, driver);
     }
 
-    @AfterMethod (alwaysRun = true)
+    @AfterMethod
     public void endTest() {
         driver.quit();
     }
