@@ -33,19 +33,20 @@ public class BaseTest implements ITestConstants {
     public void initTest(ITestContext context){
         //TODO: Different browsers (Firefox)
 //        if (System.getProperty("browser").equals("chrome")) {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
+        WebDriverManager.chromedriver().driverVersion("91").setup();
+        System.setProperty("chromeoptions.args", "--no-sandbox");
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
 //        options.addArguments("--headless");
-        options.setExperimentalOption("useAutomationExtension", false);
-        options.addArguments("start-maximized"); // open Browser in maximized mode
-        options.addArguments("disable-infobars"); // disabling infobars
-        options.addArguments("--disable-extensions"); // disabling extensions
-        options.addArguments("--disable-gpu"); // applicable to windows os only
-        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+//        options.setExperimentalOption("useAutomationExtension", false);
+//        options.addArguments("start-maximized"); // open Browser in maximized mode
+//        options.addArguments("disable-infobars"); // disabling infobars
+//        options.addArguments("--disable-extensions"); // disabling extensions
+//        options.addArguments("--disable-gpu"); // applicable to windows os only
+//        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
 //      DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 //      desiredCapabilities.setCapability("nativeWebScreenshot",true);
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
 //        } else if (System.getProperty("browser").equals("firefox")){
 //            WebDriverManager.firefoxdriver().setup();
 //            driver = new FirefoxDriver();
