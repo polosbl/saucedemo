@@ -20,6 +20,7 @@ pipeline {
 
             // Run Maven on a Unix agent.
             sh "mvn clean -Dtest=LoginTest test"
+            // sh "mvn clean -Dtest=LoginTest -Dusername={params.username} test"
 
             // To run Maven on a Windows agent, use
             // bat "mvn clean test"

@@ -36,6 +36,15 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(productsPage.getCurrentUrl(),SAUCE_DEMO_PRODUCTS_URL);
     }
 
+    //TODO: Implement parameters in Jenkins pipeline
+//    @Test
+//    public void loginEnvTest3() {
+//        loginSteps.login(SAUCE_DEMO_BASE_URL,
+//                System.getProperty("username"),
+//                System.getProperty("password"));
+//        Assert.assertEquals(productsPage.getCurrentUrl(),SAUCE_DEMO_PRODUCTS_URL);
+//    }
+
     @Test(dataProvider = "Incorrect credentials")
     public void loginWithIncorrectCredentialsTest(String username,String password,String errorMessage) {
         loginSteps
