@@ -33,7 +33,7 @@ public class BaseTest implements ITestConstants {
     public void initTest(ITestContext context){
         //TODO: Different browsers (Firefox)
 //        if (System.getProperty("browser").equals("chrome")) {
-//        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().setup();
 //        ChromeOptions options = new ChromeOptions();
 //        options.addArguments("start-maximized"); // open Browser in maximized mode
 //        options.addArguments("disable-infobars"); // disabling infobars
@@ -43,10 +43,10 @@ public class BaseTest implements ITestConstants {
 //        options.addArguments("--no-sandbox"); // Bypass OS security model
 //      DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 //      desiredCapabilities.setCapability("nativeWebScreenshot",true);
-//        driver = new ChromeDriver();
+        driver = new ChromeDriver();
 //        } else if (System.getProperty("browser").equals("firefox")){
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
+//            WebDriverManager.firefoxdriver().setup();
+//            driver = new FirefoxDriver();
 //        }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
