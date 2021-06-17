@@ -33,7 +33,8 @@ public class BaseTest implements ITestConstants {
     public void initTest(ITestContext context){
         //TODO: Different browsers (Firefox)
 //        if (System.getProperty("browser").equals("chrome")) {
-        WebDriverManager.chromedriver().driverVersion("91").setup();
+//        WebDriverManager.chromedriver().driverVersion("91").setup();
+        WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
         options.addArguments("--headless");
