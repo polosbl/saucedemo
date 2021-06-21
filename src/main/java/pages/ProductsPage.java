@@ -39,7 +39,7 @@ public class ProductsPage extends HeaderPage {
     }
 
     public String getItemPrice(String itemName) {
-        log.info(String.format("Getting price of '%s'. ", itemName) + "Locator: " + PRODUCT_PRICE);
+        log.info(String.format("Getting price of '%s' from catalog. ", itemName) + "Locator: " + PRODUCT_PRICE);
         return driver.findElement(By.xpath(String.format(PRODUCT_PRICE, itemName))).getText();
     }
 
