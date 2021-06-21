@@ -31,6 +31,8 @@ public class BaseTest implements ITestConstants {
 
     @BeforeMethod
     public void initTest(ITestContext context){
+        //TODO: Implement logic from lombok
+
         //TODO: Different browsers (Firefox)
 //        if (System.getProperty("browser").equals("chrome")) {
 //        WebDriverManager.chromedriver().driverVersion("91").setup();
