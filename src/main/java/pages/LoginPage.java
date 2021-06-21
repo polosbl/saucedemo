@@ -44,7 +44,7 @@ public class LoginPage extends BasePage {
     public ProductsPage login(String username, String password) {
         log.info(String.format("Filling in username: '%s' in login field",username));
         usernameInput.sendKeys(username);
-        log.info(String.format("Filling in username: '%s' in login field",password));
+        log.info(String.format("Filling in password: '%s' in password field",password));
         passwordInput.sendKeys(password);
         log.info("Clicking Login button.");
         loginButton.click();
@@ -55,7 +55,7 @@ public class LoginPage extends BasePage {
     public LoginPage loginWithError(String username, String password) {
         log.info(String.format("Filling in username: '%s' in login field",username));
         usernameInput.sendKeys(username);
-        log.info(String.format("Filling in username: '%s' in login field",password));
+        log.info(String.format("Filling in password: '%s' in password field",password));
         passwordInput.sendKeys(password);
         log.info("Clicking Login button.");
         loginButton.click();
@@ -80,7 +80,7 @@ public class LoginPage extends BasePage {
 
     @Step ("Opening Login page")
     public LoginPage openPage(String url) {
-        log.info("Open Login page, URL: " + url);
+        log.info("Opening Login page, URL: " + url);
         driver.get(url);
         return this;
     }
