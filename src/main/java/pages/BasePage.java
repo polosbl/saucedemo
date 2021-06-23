@@ -14,7 +14,7 @@ abstract class BasePage {
     }
 
     public String getCurrentUrl() {
-        log.info(String.format("Getting current URL."));
+        log.debug("Getting current URL.");
         return driver.getCurrentUrl();
     }
 }

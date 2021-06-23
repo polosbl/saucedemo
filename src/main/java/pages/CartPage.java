@@ -24,19 +24,18 @@ public class CartPage extends HeaderPage {
     }
 
     public String getItemPrice(String itemName) {
-        log.info(String.format("Getting price of '%s' from cart. ", itemName) + "Locator: " + PRODUCT_PRICE);
+        log.debug(String.format("Getting price of '%s' from cart. Locator: '%s'", itemName, PRODUCT_PRICE));
         return driver.findElement(By.xpath(String.format(PRODUCT_PRICE, itemName))).getText();
     }
 
     public String getItemQuantity(String itemQuantity) {
-        log.info(String.format("Getting quantity of '%s'. ", itemQuantity) + "Locator: " + PRODUCT_QUANTITY);
+        log.debug(String.format("Getting quantity of '%s'. Locator: '%s'", itemQuantity, PRODUCT_QUANTITY));
         return driver.findElement(By.xpath(String.format(PRODUCT_QUANTITY,itemQuantity))).getText();
     }
 
     @Step("Removing {itemName} from cart")
     public CartPage removeItemFromCart(String itemName) {
-        log.info(String.format("Removing '%s' from cart by clicking on remove button. ", itemName)
-                + "Locator: " + REMOVE_BUTTON);
+        log.info(String.format("Removing '%s' from cart by clicking on remove button. Locator: ", itemName, REMOVE_BUTTON));
         driver.findElement(By.xpath(String.format(REMOVE_BUTTON,itemName))).click();
         return this;
     }
