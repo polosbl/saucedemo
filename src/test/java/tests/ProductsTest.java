@@ -50,7 +50,7 @@ public class ProductsTest extends BaseTest {
                 .openPage(SAUCE_DEMO_BASE_URL)
                 .waitForPageOpened()
                 .login(STANDARD_USER, STANDARD_USER_PASSWORD);
-        Assert.assertEquals(productsPage.getItemPrice(item), price);
+        Assert.assertEquals(productSteps.getItemPrice(item), price);
     }
 
     @Test(dataProvider = "Items")
@@ -61,6 +61,6 @@ public class ProductsTest extends BaseTest {
                 .removeItemFromCart(item);
         cartPage
                 .openPage(SAUCE_DEMO_CART_URL);
-        Assert.assertFalse(cartPage.isItemElementPresent(item));
+        Assert.assertFalse(cartSteps.isItemElementPresent(item));
     }
 }

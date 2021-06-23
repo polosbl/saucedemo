@@ -3,6 +3,8 @@ package tests;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
@@ -29,12 +31,23 @@ public class BaseTest implements ITestConstants {
 
     @BeforeMethod
     public void initTest(ITestContext context){
+        //TODO: Implement logic from lombok
+
         //TODO: Different browsers (Firefox)
 //        if (System.getProperty("browser").equals("chrome")) {
+//        WebDriverManager.chromedriver().driverVersion("91").setup();
         WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox"); // Bypass OS security model, MUST BE THE VERY FIRST OPTION
+        options.addArguments("--headless");
+        options.addArguments("start-maximized"); // open Browser in maximized mode
+        options.addArguments("disable-infobars"); // disabling infobars
+        options.addArguments("--disable-extensions"); // disabling extensions
+        options.addArguments("--disable-gpu"); // applicable to windows os only
+        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
 //      DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 //      desiredCapabilities.setCapability("nativeWebScreenshot",true);
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
 //        } else if (System.getProperty("browser").equals("firefox")){
 //            WebDriverManager.firefoxdriver().setup();
 //            driver = new FirefoxDriver();
@@ -50,7 +63,7 @@ public class BaseTest implements ITestConstants {
         context.setAttribute(variable, driver);
     }
 
-    @AfterMethod (alwaysRun = true)
+    @AfterMethod
     public void endTest() {
         driver.quit();
     }

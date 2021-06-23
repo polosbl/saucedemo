@@ -45,6 +45,6 @@ workflows:
           filters:
             branches:
               only:
-                - feature_lesson14-15
+                - soucedemo_fix
     jobs:
       - ui-tests
